@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISLA BRASA — Brasa Bay open-world crime</title>
+<link rel="stylesheet" href="./css/style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.min.js" } }
+</script>
+</head>
+<body>
+<canvas id="view" aria-label="Isla Brasa: roam Brasa Bay on foot, by car and by speedboat"></canvas>
+
+<div id="hud" hidden>
+  <div id="leftStack">
+    <section id="jobCard" class="card"></section>
+    <section id="dispatchCard" class="card"></section>
+    <div id="sideTag"></div>
+  </div>
+
+  <div id="topRightStack">
+    <div id="cashLine">$0</div>
+    <div id="wantedLine"><span id="starGlyphs"></span><span id="airBadge" hidden>FALCON AIR UNIT</span></div>
+    <div id="clockLine">18:36</div>
+  </div>
+
+  <div id="rightStack">
+    <div id="gunBar"></div>
+    <section id="respectCard" class="card"></section>
+    <div id="crewRow"></div>
+  </div>
+
+  <div id="bottomLeftStack">
+    <div id="vitalBlock">
+      <div class="vitalName">HEALTH</div>
+      <div class="vitalTrack"><div id="hpFill" class="vitalFill hp"></div></div>
+      <div class="vitalName">ARMOUR</div>
+      <div class="vitalTrack"><div id="armFill" class="vitalFill arm"></div></div>
+    </div>
+    <canvas id="mini" width="176" height="176"></canvas>
+  </div>
+
+  <div id="dash" hidden>
+    <div id="dashSpeed">0</div>
+    <div class="dashUnit">KM/H</div>
+    <div id="dashCar"></div>
+    <div class="vitalTrack nitroTrack"><div id="nitroFill" class="vitalFill nitro"></div></div>
+  </div>
+  <div id="radioCard" hidden></div>
+  <div id="toastCard" hidden></div>
+
+  <div id="raceCard" hidden></div>
+  <div id="megaBanner" hidden></div>
+  <div id="districtCard" hidden></div>
+  <div id="centerCard" hidden></div>
+  <div id="dialogCard" hidden></div>
+  <div id="wheelCard" hidden><div class="wheelHead">WEAPON WHEEL — hold Q, digits 1–6 pick</div></div>
+  <div id="hintLine"></div>
+
+  <section id="shopCard" class="card floatPanel" hidden></section>
+  <section id="garageCard" class="card floatPanel" hidden></section>
+  <div id="reticle"></div>
+</div>
+
+<div id="titleCard">
+  <div class="sheet">
+    <div class="kicker">BRASA BAY · GOLDEN HOUR · ONE WHEELMAN</div>
+    <h1>ISLA <em>BRASA</em></h1>
+    <p class="blurb">Dario Venn hits Brasa Bay with a duffel bag, a debt and the fastest
+    right foot on the island. Handler Vera Quintana has ten jobs ready — marina lifts, a night
+    deposit, a Regent heir to move and a crown to steal — while the BBPD, its FALCON air unit
+    and the Los Corales gang close in. Take the bay on foot, by car, or by Mako speedboat.</p>
+    <button id="startBtn" class="bigBtn">▶ NEW GAME</button>
+    <button id="resumeBtn" class="bigBtn ghost" hidden>CONTINUE SAVED RUN</button>
+    <div class="controlsLine">WASD move / drive · E get in car · F interact / shop · Q weapon wheel ·
+    1/2/3 crew calls · T radio · R race at a gold ring · G safehouse garage · ESC pause &amp; map ·
+    drag mouse to look, click to shoot</div>
+  </div>
+</div>
+
+<div id="pauseCard" hidden>
+  <div class="pauseSheet">
+    <div class="pauseHead">
+      <h2>BRASA BAY — MAP &amp; STATS</h2>
+      <div class="pauseTabs"><span class="tab on">MAP / STATS</span><span class="tab">ESC — RESUME</span></div>
+    </div>
+    <div class="pauseBody">
+      <canvas id="bigMap" width="760" height="560"></canvas>
+      <div class="pauseSide">
+        <div id="completionBlock"></div>
+        <div id="careerBlock"></div>
+        <div id="respectBlock"></div>
+        <div id="slotsBlock"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="endCard" hidden>
+  <div class="sheet">
+    <h1 id="endHead">BUSTED</h1>
+    <p class="blurb" id="endBlurb"></p>
+    <button id="respawnBtn" class="bigBtn">BACK TO THE MARINA</button>
+  </div>
+</div>
+
+<p id="srStatus" role="status" aria-live="polite"></p>
+<script type="module" src="./js/game.js"></script>
+</body>
+</html>
